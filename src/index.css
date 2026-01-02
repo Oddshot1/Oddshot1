@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ODDSHOT Design System
+   Premium prediction markets cockpit
+   All colors MUST be HSL.
+*/
+
+
+html{
+  scroll-behavior: smooth !important;
+}
+
+@layer base {
+  :root {
+    /* ODDSHOT is dark-only - these are fallbacks */
+    --background: black;
+    --foreground: 0 0% 100%;
+
+    --card: 225 27% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 225 30% 6%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 259 94% 66%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 225 27% 8%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 225 20% 12%;
+    --muted-foreground: 0 0% 62%;
+
+    --accent: 259 94% 66%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 350 100% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 100% / 0.08;
+    --input: 0 0% 100% / 0.08;
+    --ring: 68 100% 50%;
+
+    --radius: 1rem;
+
+    /* ODDSHOT Semantic Colors */
+    --oddshot-bg: 225 33% 2%;
+    --oddshot-surface: 225 27% 4%;
+    --oddshot-elevated: 225 25% 7%;
+    --oddshot-lime: 68 100% 50%;
+    --oddshot-success: 151 100% 58%;
+    --oddshot-danger: 350 100% 65%;
+    --oddshot-warning: 45 100% 50%;
+    --oddshot-text-primary: 0 0% 100%;
+    --oddshot-text-secondary: 0 0% 62%;
+
+    /* Sidebar */
+    --sidebar-background: 225 27% 4%;
+    --sidebar-foreground: 0 0% 92%;
+    --sidebar-primary: 68 100% 50%;
+    --sidebar-primary-foreground: 225 33% 3%;
+    --sidebar-accent: 225 25% 7%;
+    --sidebar-accent-foreground: 0 0% 92%;
+    --sidebar-border: 0 0% 100% / 0.08;
+    --sidebar-ring: 68 100% 50%;
+  }
+
+  /* ODDSHOT is always dark */
+  .dark {
+    --background: 225 33% 2%;
+    --foreground: 0 0% 100%;
+
+    --card: 225 27% 4%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 225 30% 6%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 259 94% 66%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 225 27% 8%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 225 20% 12%;
+    --muted-foreground: 0 0% 62%;
+
+    --accent: 259 94% 66%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 350 100% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 100% / 0.08;
+    --input: 0 0% 100% / 0.08;
+    --ring: 68 100% 50%;
+
+    --sidebar-background: 225 27% 4%;
+    --sidebar-foreground: 0 0% 92%;
+    --sidebar-primary: 68 100% 50%;
+    --sidebar-primary-foreground: 225 33% 3%;
+    --sidebar-accent: 225 25% 7%;
+    --sidebar-accent-foreground: 0 0% 92%;
+    --sidebar-border: 0 0% 100% / 0.08;
+    --sidebar-ring: 68 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .font-sans {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  /* Odds pulse animation */
+  @keyframes odds-pulse-green {
+    0%, 100% { background-color: transparent; }
+    50% { background-color: hsl(151 100% 58% / 0.2); }
+  }
+
+  @keyframes odds-pulse-red {
+    0%, 100% { background-color: transparent; }
+    50% { background-color: hsl(350 100% 65% / 0.2); }
+  }
+
+  .animate-odds-up {
+    animation: odds-pulse-green 0.6s ease-out;
+  }
+
+  .animate-odds-down {
+    animation: odds-pulse-red 0.6s ease-out;
+  }
+
+  /* Gradient border rotation animation */
+  @keyframes gradient-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .animate-gradient-rotate {
+    animation: gradient-rotate 3s linear infinite;
+  }
+
+  /* Gradient position animation for border beam */
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Scrolling text animation for announcement banner */
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  /* Vertical scrolling animation for market cards */
+  @keyframes scroll-up {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+
+  .animate-scroll-up {
+    animation: scroll-up 25s linear infinite;
+  }
+
+  /* Horizontal scrolling animation */
+  @keyframes scroll-x {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-scroll-x {
+    animation: scroll-x 40s linear infinite;
+  }
+
+  /* Glow effects */
+  .glow-lime {
+    box-shadow: 0 0 20px hsl(68 100% 50% / 0.15);
+  }
+
+  .glow-success {
+    box-shadow: 0 0 20px hsl(151 100% 58% / 0.15);
+  }
+
+  /* Card hover */
+  .card-hover {
+    @apply transition-all duration-200;
+  }
+
+  .card-hover:hover {
+    @apply border-primary/20;
+    box-shadow: 0 0 30px hsl(68 100% 50% / 0.08);
+  }
+
+  /* Gradient animation */
+  @keyframes gradient {
+    0%, 100% { 
+      background-position: 0% 50%; 
+      opacity: 1;
+    }
+    50% { 
+      background-position: 100% 50%; 
+      opacity: 0.8;
+    }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+
+  /* Marquee animation for logos */
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .pause-marquee:hover {
+    animation-play-state: paused;
+  }
+}

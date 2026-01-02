@@ -1,0 +1,37 @@
+project_id = "xbwapzyivpqjvovcgnja"
+
+[functions.trade-assistant]
+verify_jwt = false
+
+[functions.polymarket-markets]
+verify_jwt = false
+
+[functions.polymarket-prices]
+verify_jwt = false
+
+[functions.poly-quotes]
+verify_jwt = false
+
+[functions.poly-history]
+verify_jwt = false
+
+[functions.poly-portfolio]
+verify_jwt = false
+
+[functions.poly-order]
+verify_jwt = false
+
+[functions.kalshi-markets]
+verify_jwt = false
+
+[functions.predictit-markets]
+verify_jwt = false
+
+[functions.odds-api]
+verify_jwt = false
+
+[functions.polymarket-sports]
+verify_jwt = false
+
+[functions.rundown-odds]
+verify_jwt = false
