@@ -15,7 +15,7 @@ ODDSHOT scans top prediction market venues for mispriced odds, sharp flow, momen
 
 ---
 
-## 🎯 What is ODDSHOT?
+## What is ODDSHOT?
 
 ODDSHOT is a multi-venue prediction market intelligence platform that helps traders find and execute opportunities across:
 
@@ -29,7 +29,7 @@ With real-time scanning, edge detection, and a Solana-first execution layer. Bui
 
 ---
 
-## 📊 Live Stats
+## Live Stats
 
 - **500+** Markets Tracked
 - **24/7** Real-time Signals
@@ -37,59 +37,59 @@ With real-time scanning, edge detection, and a Solana-first execution layer. Bui
 
 ---
 
-## ✨ What You Get in One Cockpit
+## What You Get in One Cockpit
 
-### 🔍 Signals
+### Signals
 Spot where attention and money move first.
 - Flow spikes, momentum shifts, unusual activity
 - Filtered to high-signal markets only
 - Confidence scoring with clear invalidation
 
-### 🎯 Edge Detection
+### Edge Detection
 Know when the odds are off.
 - Market vs model comparisons
 - Market vs venue price discrepancies
 - Mispriced probabilities identified
 - Confidence and invalidation levels included
 
-### 💰 Arbitrage +EV
+### Arbitrage +EV
 Cross-venue and intra-market setups.
 - YES/NO imbalance arbitrage
 - Multi-outcome arbitrage (2+ correlated markets)
 - Venue arbitrage opportunities
 - Clear execution paths with expected EV
 
-### 📈 Yield
+### Yield
 Near-expiry positions with measurable implied return.
 - APR preview for quick evaluation
 - Risk labels and settlement probabilities
 - Time-to-resolution countdown
 - Built for "hold to settle" strategies
 
-### 🤖 AI Assistant
+### AI Assistant
 Ask about any market like you'd ask a sharp friend.
 - Explains what matters and what's priced in
 - Summarizes news and context
 - Connects macro events to market odds
 - Real-time analysis
 
-### 🎮 Guided + Terminal Modes
+### Guided + Terminal Modes
 Same engine, two ways to trade.
 - **Guided Mode**: One "Best Opportunity Now" with a clear plan
 - **Terminal Mode**: Dense tables, scanners, and raw data for speed
 
 ---
 
-## 🧠 Proof on Every Call
+## Proof on Every Call
 
 ODDSHOT doesn't throw picks at you. Every signal is tied to:
-- ✅ **Timestamped** - See when the setup appeared and when it changed
-- ✅ **Source + Snapshot** - Know which venue and quote the call is based on
-- ✅ **Invalidation** - Know what would break the setup before you click trade
+- **Timestamped** - See when the setup appeared and when it changed
+- **Source + Snapshot** - Know which venue and quote the call is based on
+- **Invalidation** - Know what would break the setup before you click trade
 
 ---
 
-## ⚡ Solana-First Execution
+## Solana-First Execution
 
 Most opportunity lives across different venues and rails. ODDSHOT bridges Solana users across venues:
 
@@ -102,7 +102,7 @@ Most opportunity lives across different venues and rails. ODDSHOT bridges Solana
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - [Phantom Wallet](https://phantom.app) with EVM enabled
@@ -140,7 +140,7 @@ npm run preview
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### Frontend (React + TypeScript)
 - **Pages** - Markets, Portfolio, Signals, Edge, Yield, Assistant
@@ -172,20 +172,20 @@ npm run preview
 
 ---
 
-## 🔒 Security
+## Security
 
-- ✅ **JWT Authentication** - All Edge Functions require valid tokens
-- ✅ **CORS Protection** - Whitelisted origins only
-- ✅ **Rate Limiting** - 10 requests/minute per IP
-- ✅ **No Private Keys** - Wallet signing happens client-side only
-- ✅ **Secure Secrets** - API keys stored in Supabase, never in code
-- ✅ **Phantom Integration** - User controls all transaction signing
+- **JWT Authentication** - All Edge Functions require valid tokens
+- **CORS Protection** - Whitelisted origins only
+- **Rate Limiting** - 10 requests/minute per IP
+- **No Private Keys** - Wallet signing happens client-side only
+- **Secure Secrets** - API keys stored in Supabase, never in code
+- **Phantom Integration** - User controls all transaction signing
 
 **See [SECURITY.md](SECURITY.md) for complete security details.**
 
 ---
 
-## 📋 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -199,7 +199,7 @@ npm run preview
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -223,7 +223,7 @@ supabase/
 
 ---
 
-## 🎮 Development
+## Development
 
 ### Scripts
 ```bash
