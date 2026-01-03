@@ -1,22 +1,19 @@
 #!/bin/bash
-# Deploy missing Polymarket functions through Lovable/Supabase
+# Deploy missing Polymarket functions to Supabase
 
 echo "🚀 Deploying Missing Polymarket Functions"
 echo "========================================="
 echo ""
 
-# Check if we're in Lovable or need token
+# Check if we have token
 if [ -z "$SUPABASE_ACCESS_TOKEN" ]; then
   echo "⚠️  SUPABASE_ACCESS_TOKEN not set"
   echo ""
-  echo "Since you're using Lovable, you can either:"
-  echo "1. Get token from Lovable integrations"
-  echo "2. Or run: lovable deploy (if available)"
+  echo "To deploy functions, you need a Supabase access token:"
   echo ""
-  echo "To get token manually:"
-  echo "  - Click on your avatar/profile in Lovable"
-  echo "  - Go to Integrations → Supabase"
-  echo "  - Copy the access token or CLI token"
+  echo "1. Get token from Supabase Dashboard:"
+  echo "   - Go to Settings → Access Tokens"
+  echo "   - Create a new token"
   echo ""
   exit 1
 fi

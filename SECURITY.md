@@ -53,9 +53,6 @@ AI_MODEL=gpt-3.5-turbo               # or your chosen model
 
 # Trading APIs
 ODDS_API_KEY=your_odds_api_key
-
-# Optional: For future Lovable integration (if needed)
-# LOVABLE_API_KEY=your_lovable_key
 ```
 
 ### 2. CORS Origins
@@ -233,7 +230,7 @@ If you discover a security vulnerability:
 - ✅ Enabled JWT verification on all Edge Functions
 - ✅ Added CORS whitelisting
 - ✅ Implemented rate limiting (10 req/min)
-- ✅ Removed Lovable-specific integration (now provider-agnostic)
+- ✅ Migrated to provider-agnostic AI integration
 - ✅ Added comprehensive security documentation
 
 ### v1.0.0 - Previous Release
