@@ -152,10 +152,16 @@ src/
 
 ## 🔒 Security
 
-- All trading requires wallet signatures
-- L2 credentials stored in sessionStorage (24h TTL)
-- No private keys stored
-- Withdrawals via official Polymarket interface
+- ✅ JWT Authentication enabled on all Edge Functions
+- ✅ CORS restricted to whitelisted origins
+- ✅ Rate limiting: 10 requests/minute per IP
+- ✅ All trading requires wallet signatures
+- ✅ L2 credentials stored in sessionStorage (24h TTL)
+- ✅ No private keys stored on server
+- ✅ Secrets managed via Supabase Secrets
+- ✅ Withdrawals via official Polymarket interface
+
+**See [SECURITY.md](SECURITY.md) for complete security policy and deployment checklist.**
 
 ---
 
