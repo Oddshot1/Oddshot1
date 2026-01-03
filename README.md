@@ -15,7 +15,7 @@ ODDSHOT scans top prediction market venues for mispriced odds, sharp flow, momen
 
 ---
 
-## What is ODDSHOT?
+## 1. What is ODDSHOT?
 
 ODDSHOT is a multi-venue prediction market intelligence platform that helps traders find and execute opportunities across:
 
@@ -29,7 +29,7 @@ With real-time scanning, edge detection, and a Solana-first execution layer. Bui
 
 ---
 
-## Live Stats
+## 2. Live Stats
 
 - **500+** Markets Tracked
 - **24/7** Real-time Signals
@@ -37,50 +37,50 @@ With real-time scanning, edge detection, and a Solana-first execution layer. Bui
 
 ---
 
-## What You Get in One Cockpit
+## 3. What You Get in One Cockpit
 
-### Signals
+### 3.1 Signals
 Spot where attention and money move first.
 - Flow spikes, momentum shifts, unusual activity
 - Filtered to high-signal markets only
 - Confidence scoring with clear invalidation
 
-### Edge Detection
+### 3.2 Edge Detection
 Know when the odds are off.
 - Market vs model comparisons
 - Market vs venue price discrepancies
 - Mispriced probabilities identified
 - Confidence and invalidation levels included
 
-### Arbitrage +EV
+### 3.3 Arbitrage +EV
 Cross-venue and intra-market setups.
 - YES/NO imbalance arbitrage
 - Multi-outcome arbitrage (2+ correlated markets)
 - Venue arbitrage opportunities
 - Clear execution paths with expected EV
 
-### Yield
+### 3.4 Yield
 Near-expiry positions with measurable implied return.
 - APR preview for quick evaluation
 - Risk labels and settlement probabilities
 - Time-to-resolution countdown
 - Built for "hold to settle" strategies
 
-### AI Assistant
+### 3.5 AI Assistant
 Ask about any market like you'd ask a sharp friend.
 - Explains what matters and what's priced in
 - Summarizes news and context
 - Connects macro events to market odds
 - Real-time analysis
 
-### Guided + Terminal Modes
+### 3.6 Guided + Terminal Modes
 Same engine, two ways to trade.
 - **Guided Mode**: One "Best Opportunity Now" with a clear plan
 - **Terminal Mode**: Dense tables, scanners, and raw data for speed
 
 ---
 
-## Proof on Every Call
+## 4. Proof on Every Call
 
 ODDSHOT doesn't throw picks at you. Every signal is tied to:
 - **Timestamped** - See when the setup appeared and when it changed
@@ -89,7 +89,7 @@ ODDSHOT doesn't throw picks at you. Every signal is tied to:
 
 ---
 
-## Solana-First Execution
+## 5. Solana-First Execution
 
 Most opportunity lives across different venues and rails. ODDSHOT bridges Solana users across venues:
 
@@ -102,13 +102,13 @@ Most opportunity lives across different venues and rails. ODDSHOT bridges Solana
 
 ---
 
-## Getting Started
+## 6. Getting Started
 
-### Prerequisites
+### 6.1 Prerequisites
 - [Phantom Wallet](https://phantom.app) with EVM enabled
 - SOL or USDC for trading
 
-### Installation
+### 6.2 Installation
 
 ```bash
 # Clone repository
@@ -131,7 +131,7 @@ npm run dev
 
 Open [http://localhost:8082](http://localhost:8082)
 
-### Deploy
+### 6.3 Deploy
 
 ```bash
 npm run build
@@ -140,15 +140,15 @@ npm run preview
 
 ---
 
-## Architecture
+## 7. Architecture
 
-### Frontend (React + TypeScript)
+### 7.1 Frontend (React + TypeScript)
 - **Pages** - Markets, Portfolio, Signals, Edge, Yield, Assistant
 - **Hooks** - Custom React hooks for multi-venue data fetching
 - **Components** - Reusable UI components (shadcn/ui + Tailwind)
 - **State** - TanStack Query for server state, Context for client state
 
-### Backend (Supabase Edge Functions)
+### 7.2 Backend (Supabase Edge Functions)
 - `poly-markets` → Polymarket markets
 - `kalshi-markets` → Kalshi markets
 - `predictit-markets` → PredictIt markets
@@ -163,7 +163,7 @@ npm run preview
 - `poly-geoblock` → Trading eligibility checks
 - And more...
 
-### Multi-Venue Integration
+### 7.3 Multi-Venue Integration
 - **Polymarket** - CLOB API, Gamma API, Data API
 - **Kalshi** - Markets API
 - **PredictIt** - Markets endpoint
@@ -172,7 +172,7 @@ npm run preview
 
 ---
 
-## Security
+## 8. Security
 
 - **JWT Authentication** - All Edge Functions require valid tokens
 - **CORS Protection** - Whitelisted origins only
@@ -185,7 +185,7 @@ npm run preview
 
 ---
 
-## Tech Stack
+## 9. Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -199,7 +199,7 @@ npm run preview
 
 ---
 
-## Project Structure
+## 10. Project Structure
 
 ```
 src/
@@ -223,9 +223,9 @@ supabase/
 
 ---
 
-## Development
+## 11. Development
 
-### Scripts
+### 11.1 Scripts
 ```bash
 npm run dev          # Start dev server (port 8082)
 npm run build        # Production build
@@ -234,7 +234,7 @@ npm run lint         # Run ESLint
 npm run preview      # Preview production build
 ```
 
-### Environment Variables
+### 11.2 Environment Variables
 
 See `.env.example` for all options:
 
@@ -250,7 +250,7 @@ AI_MODEL                       # Model to use
 ODDS_API_KEY                   # The Odds API key
 ```
 
-### Contributing
+### 11.3 Contributing
 
 1. Create a branch: `git checkout -b feature/your-feature`
 2. Make changes and test
@@ -260,6 +260,6 @@ ODDS_API_KEY                   # The Odds API key
 
 ---
 
-## License
+## 12. License
 
 Code is available under MIT license. Services integrated (Polymarket, Kalshi, Phantom, Supabase) retain their respective terms.
