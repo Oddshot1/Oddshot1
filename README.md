@@ -9,6 +9,8 @@
 [![Supabase](https://img.shields.io/badge/Supabase-Backend-3ecf8e?logo=supabase&logoColor=white)](https://supabase.com)
 [![Solana](https://img.shields.io/badge/Solana-Enabled-14F195?logo=solana&logoColor=white)](https://solana.com)
 
+![ODDSHOT](/public/oddshot-hero.png)
+
 **Find the trade before it's obvious.**
 
 ODDSHOT scans top prediction market venues for mispriced odds, sharp flow, momentum shifts, arbitrage, and near-expiry yield. Get one clear plan per market: what to do, why it works, what breaks it, and when to exit.
