@@ -209,8 +209,8 @@ Check logs in Supabase Dashboard → Edge Functions → Logs
 
 - [Supabase Security Best Practices](https://supabase.com/docs/guides/security)
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
-- [Polymarket Security](https://docs.polymarket.com/security)
-- [Phantom Wallet Security](https://docs.phantom.app/solana/best-practices)
+- [Polymarket Documentation](https://polymarket.com)
+- [Phantom Wallet Documentation](https://phantom.app)
 
 ---
 
