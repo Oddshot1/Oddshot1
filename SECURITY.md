@@ -219,7 +219,7 @@ Check logs in Supabase Dashboard → Edge Functions → Logs
 If you discover a security vulnerability:
 
 1. **Do not** open a public GitHub issue
-2. Email: security@oddshot1.dev (if applicable)
+2. Email the maintainers directly (configure in your .env.local)
 3. Provide:
    - Description of vulnerability
    - Steps to reproduce
