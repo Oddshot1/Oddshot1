@@ -142,15 +142,7 @@ src/
 
 ---
 
-## 📚 Documentation
-
-- `FIXED_ISSUES.md` - Summary of resolved issues
-- `FINAL_DEPLOYMENT_GUIDE.md` - Comprehensive feature guide
-- `DEPLOY_HISTORY.md` - History deployment (deprecated - now uses public API)
-
----
-
-## 🔒 Security
+## � Security
 
 - ✅ JWT Authentication enabled on all Edge Functions
 - ✅ CORS restricted to whitelisted origins
@@ -171,13 +163,3 @@ src/
 - [ ] Advanced charting
 - [ ] Price alerts
 - [ ] Multi-position trading
-
----
-
-## 📝 License
-
-MIT
-
----
-
-**Built with ❤️ for the Polymarket community**
