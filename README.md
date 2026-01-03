@@ -1,4 +1,4 @@
-# ODDSHOT
+![ODDSHOT](/public/oddshot-hero.png)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <a href="https://www.oddshot.trade" target="_blank"><img src="https://img.shields.io/badge/Website-oddshot.trade-007BFF?logo=globe&logoColor=white" alt="Website"></a>
@@ -8,8 +8,6 @@
 [![Vite](https://img.shields.io/badge/Vite-6.x-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
 [![Supabase](https://img.shields.io/badge/Supabase-Backend-3ecf8e?logo=supabase&logoColor=white)](https://supabase.com)
 [![Solana](https://img.shields.io/badge/Solana-Enabled-14F195?logo=solana&logoColor=white)](https://solana.com)
-
-![ODDSHOT](/public/oddshot-hero.png)
 
 **Find the trade before it's obvious.**
 
