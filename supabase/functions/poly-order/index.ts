@@ -3,9 +3,20 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createHmac } from "https://deno.land/std@0.168.0/node/crypto.ts";
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, poly-api-key, poly-signature, poly-timestamp, poly-passphrase',
+// CORS Configuration - Restrict to your production domain
+const ALLOWED_ORIGINS = [
+  'http://localhost:8082',
+  'http://localhost:3000',
+  'https://oddshot1.vercel.app',
+];
+
+const corsHeaders = (origin?: string) => {
+  const allowedOrigin = ALLOWED_ORIGINS.includes(origin || '') ? origin : ALLOWED_ORIGINS[2];
+  return {
+    'Access-Control-Allow-Origin': allowedOrigin,
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, poly-api-key, poly-signature, poly-timestamp, poly-passphrase',
+  };
 };
 
 const CLOB_API = 'https://clob.polymarket.com';

@@ -1,8 +1,19 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+// CORS Configuration - Restrict to your production domain
+const ALLOWED_ORIGINS = [
+  'http://localhost:8082',
+  'http://localhost:3000',
+  'https://oddshot1.vercel.app',
+];
+
+const corsHeaders = (origin?: string) => {
+  const allowedOrigin = ALLOWED_ORIGINS.includes(origin || '') ? origin : ALLOWED_ORIGINS[2];
+  return {
+    'Access-Control-Allow-Origin': allowedOrigin,
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  };
 };
 
 // The Odds API - 500 requests/month free tier

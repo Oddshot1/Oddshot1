@@ -1,9 +1,41 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+// CORS Configuration - Restrict to your production domain
+const ALLOWED_ORIGINS = [
+  "http://localhost:8082",
+  "http://localhost:3000",
+  "https://oddshot1.vercel.app",
+  // Add your production domain here
+];
+
+const corsHeaders = (origin?: string) => {
+  const allowedOrigin = ALLOWED_ORIGINS.includes(origin || "") ? origin : ALLOWED_ORIGINS[2];
+  return {
+    "Access-Control-Allow-Origin": allowedOrigin,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  };
 };
+
+// Simple rate limiting (in-memory, consider Redis for production)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+
+function checkRateLimit(key: string, maxRequests: number = 10, windowMs: number = 60000): boolean {
+  const now = Date.now();
+  const existing = rateLimitMap.get(key);
+  
+  if (!existing || now > existing.resetTime) {
+    rateLimitMap.set(key, { count: 1, resetTime: now + windowMs });
+    return true;
+  }
+  
+  if (existing.count < maxRequests) {
+    existing.count++;
+    return true;
+  }
+  
+  return false;
+}
 
 const SYSTEM_PROMPT = `You are ODDSHOT's AI Trading Assistant - an expert in prediction markets, especially Polymarket.
 
@@ -64,14 +96,27 @@ CRITICAL REMINDERS:
 - Keep responses concise and actionable`;
 
 serve(async (req) => {
+  // Handle CORS preflight
   if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
+    return new Response(null, { headers: corsHeaders(req.headers.get("origin") || undefined) });
   }
 
   try {
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) {
-      throw new Error("LOVABLE_API_KEY is not configured");
+    // Rate limiting
+    const clientIP = req.headers.get("x-forwarded-for") || "unknown";
+    if (!checkRateLimit(clientIP, 10, 60000)) {
+      return new Response(
+        JSON.stringify({ error: "Rate limit exceeded. Maximum 10 requests per minute." }),
+        { status: 429, headers: { ...corsHeaders(req.headers.get("origin") || undefined), "Content-Type": "application/json" } }
+      );
+    }
+
+    // Get AI provider configuration
+    const AI_PROVIDER = Deno.env.get("AI_PROVIDER") || "openai";
+    const AI_API_KEY = Deno.env.get("AI_API_KEY");
+    
+    if (!AI_API_KEY) {
+      throw new Error(`${AI_PROVIDER.toUpperCase()}_API_KEY is not configured`);
     }
 
     const { message, marketContext, conversationHistory = [] } = await req.json();
@@ -131,16 +176,21 @@ serve(async (req) => {
     // Add current message
     messages.push({ role: "user", content: message });
 
-    console.log("Calling Lovable AI Gateway with", messages.length, "messages");
+    console.log(`Calling ${AI_PROVIDER} with ${messages.length} messages`);
 
-    const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    // Call AI provider (OpenAI compatible API)
+    const aiEndpoint = AI_PROVIDER === "openai" 
+      ? "https://api.openai.com/v1/chat/completions"
+      : `${Deno.env.get("AI_API_ENDPOINT") || ""}/chat/completions`;
+
+    const response = await fetch(aiEndpoint, {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${LOVABLE_API_KEY}`,
+        "Authorization": `Bearer ${AI_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "google/gemini-2.5-flash",
+        model: Deno.env.get("AI_MODEL") || "gpt-3.5-turbo",
         messages,
         max_tokens: 1024,
         temperature: 0.7,
@@ -149,8 +199,8 @@ serve(async (req) => {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error("AI Gateway error:", response.status, errorText);
-      throw new Error(`AI Gateway error: ${response.status}`);
+      console.error(`${AI_PROVIDER} error:`, response.status, errorText);
+      throw new Error(`AI API error: ${response.status}`);
     }
 
     const data = await response.json();
@@ -163,14 +213,14 @@ serve(async (req) => {
         message: assistantMessage,
         model: data.model,
       }),
-      { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      { headers: { ...corsHeaders(req.headers.get("origin") || undefined), "Content-Type": "application/json" } }
     );
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Unknown error";
     console.error("Trade assistant error:", message);
     return new Response(
       JSON.stringify({ error: message }),
-      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      { status: 500, headers: { ...corsHeaders(req.headers.get("origin") || undefined), "Content-Type": "application/json" } }
     );
   }
 });
