@@ -1,5 +1,16 @@
 # ODDSHOT
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Website](https://img.shields.io/badge/Website-oddshot.trade-007BFF?logo=globe&logoColor=white)](https://www.oddshot.trade)
+[![Twitter](https://img.shields.io/badge/Twitter-@oddshot__trade-1DA1F2?logo=x&logoColor=white)](https://x.com/oddshot_trade)
+[![React](https://img.shields.io/badge/React-18.3-61DAFB?logo=react&logoColor=white)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Vite](https://img.shields.io/badge/Vite-6.x-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
+[![Supabase](https://img.shields.io/badge/Supabase-Backend-3ecf8e?logo=supabase&logoColor=white)](https://supabase.com)
+[![Solana](https://img.shields.io/badge/Solana-Enabled-14F195?logo=solana&logoColor=white)](https://solana.com)
+[![Polymarket](https://img.shields.io/badge/Polymarket-Supported-6366f1?logoColor=white)](https://polymarket.com)
+[![Kalshi](https://img.shields.io/badge/Kalshi-Supported-FF6B6B?logoColor=white)](https://kalshi.com)
+
 **Find the trade before it's obvious.**
 
 ODDSHOT scans top prediction market venues for mispriced odds, sharp flow, momentum shifts, arbitrage, and near-expiry yield. Get one clear plan per market: what to do, why it works, what breaks it, and when to exit.
